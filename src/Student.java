@@ -46,4 +46,19 @@ public class Student extends Person {
         }
         return (double) total / marks.size();
     }
+
+    /** Prints the report card to the console. */
+    public void showReportCard() {
+        System.out.println("\n===== REPORT CARD =====");
+        System.out.println("Roll No : " + fetchId());
+        System.out.println("Name    : " + fetchName());
+        System.out.println("-----------------------");
+        for (Map.Entry<String, Integer> e : marks.entrySet()) {
+            System.out.printf("%-12s %3d  (GP %d)%n",
+                    e.getKey(), e.getValue(), toGradePoint(e.getValue()));
+        }
+        System.out.println("-----------------------");
+        System.out.printf("CGPA    : %.2f%n", computeCgpa());
+        System.out.println("=======================");
+    }
 }
