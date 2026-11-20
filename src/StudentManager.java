@@ -20,7 +20,8 @@ public class StudentManager {
         }
         return s;
     }
-
+    
+    // Sorts students from highest CGPA to lowest CGPA.
     /**
      * Returns students ranked by CGPA, highest first.
      * DSA: our own insertion sort (no Collections.sort / streams).
