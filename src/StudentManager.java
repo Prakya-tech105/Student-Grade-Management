@@ -20,4 +20,23 @@ public class StudentManager {
         }
         return s;
     }
+
+    /**
+     * Returns students ranked by CGPA, highest first.
+     * DSA: our own insertion sort (no Collections.sort / streams).
+     */
+    public List<Student> buildRankList() {
+        List<Student> list = new ArrayList<>(students.values());
+        for (int i = 1; i < list.size(); i++) {
+            Student key = list.get(i);
+            int j = i - 1;
+            // shift smaller-CGPA students one place to the right
+            while (j >= 0 && list.get(j).computeCgpa() < key.computeCgpa()) {
+                list.set(j + 1, list.get(j));
+                j--;
+            }
+            list.set(j + 1, key);
+        }
+        return list;
+    }
 }
