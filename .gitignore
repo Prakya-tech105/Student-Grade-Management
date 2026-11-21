@@ -5,3 +5,8 @@ bin/
 
 # VS Code settings
 .vscode/
+
+
+# Logs and temporary files
+*.log
+*.tmp
